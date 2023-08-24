@@ -1,0 +1,52 @@
+.home-wrapper {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    height: 19em;
+    margin: 16px;
+    border-radius: 10px;
+    margin-left: 32px;
+    background-color: white;
+    display: flex;
+    font-size: 2rem;
+    color: lightgray;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Valores de sombra personalizados */
+    transition: box-shadow 0.3s ease-in-out; /* Agregar transición suave */
+}
+
+mat-toolbar{
+    background: white;
+    color: black;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background-color: #eff3f8;
+    z-index: 1000;
+}
+mat-sidenav {
+    margin: 16px;
+    width: 300px;
+    background-color: white;
+    border-right: none;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content{
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    font-size: 2rem;
+    color: lightgray;
+    background-color: white;
+    padding: 25px 30px;
+}
+
+@media (max-width: 600px) {
+    /* Estilo para pantallas de menos de 600px */
+    .content {
+        height: auto; /* Dejar que crezca automáticamente */
+    }
+}

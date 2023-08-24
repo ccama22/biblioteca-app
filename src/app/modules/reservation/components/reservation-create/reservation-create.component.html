@@ -1,0 +1,54 @@
+<div class="dialog-container">
+    <div mat-dialog-title class="dialog-title">
+        <div class="title-data">
+            <div>Realizar Reserva</div>
+            <div>
+                <button mat-icon-button class="close-button" (click)="onCancel()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-content class="dialog-content">
+        <form [formGroup]="reservationForm" (ngSubmit)="onSave()" class="dialog-form">
+            <div class="content-data">
+                <label for="selectedUser">Seleccionar Usuario:</label>
+                <select id="selectedUser" formControlName="selectedUser" class="custom-select">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option *ngFor="let user of users" [value]="user.user_id">{{ user.username }}</option>
+                </select>
+                <div *ngIf="userControl?.hasError('required') && userControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Usuario es requerido.
+                </div>
+            </div>
+            <div class="content-data">
+                <label for="selectedBook">Seleccionar Libro:</label>
+                <select id="selectedBook" formControlName="selectedBook" class="custom-select">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option *ngFor="let book of books" [value]="book.book_id">{{ book.title }}</option>
+                </select>
+                <div *ngIf="bookControl?.hasError('required') && bookControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Libro es requerido.
+                </div>
+            </div>
+            <div class="content-data">
+                <label for="selectedDate">Seleccione fin de Reserva:</label>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" formControlName="selectedDate" [min]="minDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div *ngIf="dateControl?.hasError('required') && dateControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Fin de Reserva es requerida.
+                </div>
+            </div>
+            <div mat-dialog-actions class="dialog-footer">
+                <button mat-button color="primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

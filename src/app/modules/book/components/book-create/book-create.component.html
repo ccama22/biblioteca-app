@@ -1,0 +1,57 @@
+<div class="dialog-container">
+    <div mat-dialog-title class="dialog-title">
+        <div class="title-data">
+            <div>Crear Libro</div>
+            <div>
+                <button mat-icon-button class="close-button" (click)="onCancel()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-content class="dialog-content">
+        <form [formGroup]="bookForm" (ngSubmit)="onSave()" class="dialog-form">
+            <!-- Campo de entrada para el título -->
+            <div class="content-data">
+                <label for="title">Titulo:</label>
+                <input type="text" id="title" formControlName="title" />
+                <div *ngIf="titleControl?.hasError('required') && titleControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Titulo es requerido.
+                </div>
+                <div *ngIf="titleControl?.hasError('minlength') && titleControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    El título debe tener al menos 5 caracteres.
+                </div>
+                <div *ngIf="titleControl?.hasError('pattern') && titleControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    El título debe ser una cadena de texto válida.
+                </div>
+            </div>
+
+            <!-- Campo de entrada para el autor -->
+            <div class="content-data">
+                <label for="author">Autor:</label>
+                <input type="text" id="author" formControlName="author" />
+                <div *ngIf="authorControl?.hasError('required') && authorControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Autor es requerido.
+                </div>
+                <div *ngIf="authorControl?.hasError('minlength') && authorControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    El autor debe tener al menos 5 caracteres.
+                </div>
+                <div *ngIf="authorControl?.hasError('pattern') && authorControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    El autor debe ser una cadena de texto válida.
+                </div>
+            </div>
+
+            <!-- Botón de Guardar -->
+            <div mat-dialog-actions class="dialog-footer">
+                <button mat-button color="primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

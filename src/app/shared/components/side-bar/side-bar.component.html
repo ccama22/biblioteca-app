@@ -1,0 +1,18 @@
+<div>
+    <h4 class="name">Usuario: Jose Armando</h4>
+    <p class="designation">ing. En conputacion</p>
+    <mat-divider></mat-divider>
+    <i class="uil uil-books"></i>
+    <div class="menu-button-container" *ngFor="let item of mainMenu.defaultOptions">
+        <a mat-button class="menu-button" [routerLink]="item.router">
+            <mat-icon>{{item.icon}}</mat-icon>
+            <span>{{item.name}}</span>
+        </a>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button">
+        <mat-icon>logout</mat-icon>
+        <span>Salir</span>
+    </button>
+
+</div>

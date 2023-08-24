@@ -1,0 +1,48 @@
+<div class="dialog-container">
+    <div mat-dialog-title class="dialog-title">
+        <div class="title-data">
+            <div>Editar Usuario</div>
+            <div>
+                <button mat-icon-button class="close-button" (click)="onCancel()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-content class="dialog-content">
+        <form [formGroup]="editForm" (ngSubmit)="onSave()" class="dialog-form">
+            <!-- Campo de entrada para el usuario -->
+            <div class="content-data">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" formControlName="username" />
+                <div *ngIf="usernameControl?.hasError('required') && usernameControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Usuario es requerido.
+                </div>
+                <div *ngIf="usernameControl?.hasError('minlength') && usernameControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    El usuario debe tener al menos 5 caracteres.
+                </div>
+            </div>
+
+            <!-- Campo de entrada para el correo -->
+            <div class="content-data">
+                <label for="email">Correo:</label>
+                <input type="email" id="email" formControlName="email" />
+                <div *ngIf="emailControl?.hasError('required') && emailControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Correo es requerido.
+                </div>
+                <div *ngIf="emailControl?.hasError('email') && emailControl?.touched" class="error-message"
+                    style="color: red;font-size: 13px;">
+                    Ingresa un correo válido.
+                </div>
+            </div>
+
+            <!-- Botón de Guardar -->
+            <div mat-dialog-actions class="dialog-footer">
+                <button mat-button color="primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

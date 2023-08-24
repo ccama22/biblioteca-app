@@ -1,0 +1,39 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="nro">
+            <th mat-header-cell *matHeaderCellDef> Nro. </th>
+            <td mat-cell *matCellDef="let element"> {{element.nro}} </td>
+        </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <div class="action-buttons-container">
+                    <button mat-icon-button (click)="editRow(element)" class="action-button edit-button">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="deleteRow(element)" class="action-button delete-button">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 6]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

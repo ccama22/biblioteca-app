@@ -1,0 +1,79 @@
+.dialog-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    top: 0;
+    right: 0;
+
+}
+.dialog-title {
+    display: flex;
+    background-color: #eff3f8;
+    color: white;
+    padding: 10px;
+    padding: 10px 20px;
+    color: black;
+}
+
+.title-data{
+    display: flex;
+}
+
+.close-button {
+    background-color: transparent;
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    outline: none;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.dialog-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dialog-form input[type="text"],
+.dialog-form input[type="email"] {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: none; /* Quitar bordes */
+    outline: none; /* Quitar el resaltado de enfoque */
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0; /* Espaciado externo */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+.content-data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.dialog-footer{
+    padding-left: 3px;
+    padding-bottom: 20px;
+}
+
+/* Aplicar estilo al botón en el mat-dialog-actions */
+.dialog-footer button[type="submit"] {
+    background-color: #007bff; /* Color de fondo - en este caso, azul */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Quitar bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 60px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.dialog-footer button[type="submit"]:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}

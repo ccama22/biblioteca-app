@@ -1,0 +1,29 @@
+<div class="dialog-container">
+    <div mat-dialog-title class="dialog-title">
+        <div class="title-data">
+            <div>Editar Libro</div>
+            <div>
+                <button mat-icon-button class="close-button" (click)="onCancel()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-content class="dialog-content">
+        <form [formGroup]="editForm" (ngSubmit)="onSave()" class="dialog-form">
+            <!-- Ejemplo de campo de entrada utilizando el formulario reactivo -->
+            <div class="content-data">
+                <label for="title">Titulo:</label>
+                <input type="text" id="title" formControlName="title" />
+            </div>
+
+            <div class="content-data">
+                <label for="author">Libro:</label>
+                <input type="text" id="author" formControlName="author" />
+            </div>
+            <div mat-dialog-actions class="dialog-footer">
+                <button mat-button color="primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
