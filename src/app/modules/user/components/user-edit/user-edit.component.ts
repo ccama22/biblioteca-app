@@ -47,7 +47,6 @@ export class UserEditComponent {
                 });
           }
       );
-      // this.dialogRef.close(editedData);
     }
     else{
       this.editForm.markAllAsTouched();

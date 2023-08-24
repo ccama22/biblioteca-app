@@ -24,7 +24,7 @@ export class UserService {
         map(response => {
           const usersWithNumber = response.users.map((user:any, index:any) => ({
             ...user,
-            nro: index + 1 // Agrega la propiedad 'nro' con el número de índice + 1
+            nro: index + 1
           }));
           return usersWithNumber;
         })

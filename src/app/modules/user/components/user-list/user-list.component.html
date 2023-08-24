@@ -4,13 +4,12 @@
             <th mat-header-cell *matHeaderCellDef> Nro. </th>
             <td mat-cell *matCellDef="let element"> {{element.nro}} </td>
         </ng-container>
-        <!-- Position Column -->
+
         <ng-container matColumnDef="username">
             <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
             <td mat-cell *matCellDef="let element"> {{element.username}} </td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> Email </th>
             <td mat-cell *matCellDef="let element"> {{element.email}} </td>

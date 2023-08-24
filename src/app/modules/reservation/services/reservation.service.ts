@@ -11,9 +11,6 @@ import { formatDate } from '@angular/common';
 export class ReservationService {
   private readonly URL = environment.api
 
-  // private booksSource = new BehaviorSubject<BooksModel[]>([]);
-  // books$ = this.booksSource.asObservable();
-
   private _refresh$ = new Subject<void>();
 
   constructor(private http: HttpClient) { }
@@ -32,7 +29,7 @@ export class ReservationService {
   
         const requests = reservationsWithNumber.map((reservation: any) => {
           const userRequest = this.http.get<any>(`${this.URL}/user/${reservation.user_id}`);
-          const additionalDataRequest = this.http.get<any>(`${this.URL}/book/${reservation.book_id}`); // Adjust the URL accordingly
+          const additionalDataRequest = this.http.get<any>(`${this.URL}/book/${reservation.book_id}`);
           
           return forkJoin([userRequest, additionalDataRequest]).pipe(
             map(([userDetail, additionalData]) => ({
@@ -43,7 +40,6 @@ export class ReservationService {
           );
         });
         
-        // Combine the observables using forkJoin
         return forkJoin(requests);
       })
     );
@@ -81,7 +77,7 @@ export class ReservationService {
         map(response => {
           const booksWithNumber = response.books.map((book:any, index:any) => ({
             ...book,
-            nro: index + 1 // Agrega la propiedad 'nro' con el número de índice + 1
+            nro: index + 1
           }));
           return booksWithNumber;
         })
@@ -102,7 +98,7 @@ export class ReservationService {
 
   updateDataOnServer(updatedData: any,id:any): Observable<any> {
     console.log("data editttasr",updatedData)
-    const currentDateTime = new Date(); // Obtener la fecha y hora actual
+    const currentDateTime = new Date();
     const formattedCurrentDateTime = formatDate(
       currentDateTime,
       'yyyy-MM-dd HH:mm:ss',
@@ -115,7 +111,6 @@ export class ReservationService {
       dateReserved:formattedCurrentDateTime,
       dateDue: formatDate(updatedData.selectedDate, 'yyyy-MM-dd HH:mm:ss', 'en-US')
     }
-    // console.log("data editttasr",dataUpdate)
     const apiUrl = `${this.URL}/reservation/${id}`;
 
     return this.http.put(apiUrl, dataUpdate).pipe(

@@ -20,9 +20,7 @@ export class UserPageComponent implements OnInit {
       width: '400px', // Ajusta el ancho según tus necesidades
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      // Aquí puedes manejar acciones después de que se cierre el diálogo
-    });
+    dialogRef.afterClosed();
   }
   
 }

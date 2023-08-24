@@ -10,9 +10,6 @@ import { environment } from 'src/environments/environment.prod';
 export class BookService {
   private readonly URL = environment.api
 
-  // private booksSource = new BehaviorSubject<BooksModel[]>([]);
-  // books$ = this.booksSource.asObservable();
-
   private _refresh$ = new Subject<void>();
 
   constructor(private http: HttpClient) { }
@@ -27,7 +24,7 @@ export class BookService {
         map(response => {
           const booksWithNumber = response.books.map((book:any, index:any) => ({
             ...book,
-            nro: index + 1 // Agrega la propiedad 'nro' con el número de índice + 1
+            nro: index + 1
           }));
           return booksWithNumber;
         })

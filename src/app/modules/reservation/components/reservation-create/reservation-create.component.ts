@@ -25,8 +25,6 @@ export class ReservationCreateComponent implements OnInit {
   ){
     this.minDate = new Date();
     this.reservationForm = this.formBuilder.group({
-      // title: ['', Validators.required],
-      // author: ['', [Validators.required]],
       selectedUser: [null,Validators.required],
       selectedBook: [null,Validators.required],
       selectedDate: [null,Validators.required]

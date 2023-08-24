@@ -26,8 +26,6 @@ export class ReservationEditComponent {
   ){
     this.minDate = new Date();
     this.reservationForm = this.formBuilder.group({
-      // title: ['', Validators.required],
-      // author: ['', [Validators.required]],
       selectedUser: [data.user_id,Validators.required],
       selectedBook: [data.book_id,Validators.required],
       selectedDate: ['',Validators.required]

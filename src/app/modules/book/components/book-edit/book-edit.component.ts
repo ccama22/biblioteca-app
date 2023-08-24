@@ -39,7 +39,6 @@ export class BookEditComponent {
                 });
           }
       );
-      // this.dialogRef.close(editedData);
     }
   }
 

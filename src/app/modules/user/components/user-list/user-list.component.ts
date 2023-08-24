@@ -74,14 +74,9 @@ export class UserListComponent {
   editRow(row: any) {
     const dialogRef = this.dialog.open(UserEditComponent, {
       width: '400px', // Ajusta el ancho del modal según tus necesidades
-      data: row // Puedes pasar datos al componente del diálogo si es necesario
+      data: row
     });
-    dialogRef.afterClosed().subscribe(result => {
-      // Puedes realizar acciones después de que se cierra el modal si es necesario
-    });
-    // Aquí puedes implementar la lógica para editar el registro correspondiente.
-    // Por ejemplo, podrías redirigir a una página de edición con los detalles del registro.
-    console.log('Edit clicked for row:', row);
+    dialogRef.afterClosed();
   }
 
   deleteRow(row: any) {

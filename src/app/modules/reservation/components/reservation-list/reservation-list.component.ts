@@ -91,11 +91,10 @@ export class ReservationListComponent {
 
   private formatCreatedAt(createdAt: string | null): string {
     if (createdAt === null) {
-      return ''; // O cualquier otro valor predeterminado que desees mostrar para fechas inválidas o nulas
+      return '';
     }
 
-    // Importa DatePipe en el constructor para usarlo aquí
-    const datePipe = new DatePipe('en-US'); // Ajusta la configuración de localización si es necesario
+    const datePipe = new DatePipe('en-US');
 
     return datePipe.transform(createdAt, 'yyyy-MM-dd / HH:mm:ss') || '';
   }

@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent {
-  // users: UsersModel[] = [];
+  
   dataSource: MatTableDataSource<BooksModel>;
 
   displayedColumns: string[] = ['nro','title', 'author', 'available','startDate','actions'];
@@ -80,10 +80,9 @@ export class BookListComponent {
   }
   private formatCreatedAt(createdAt: string | null): string {
     if (createdAt === null) {
-      return ''; // O cualquier otro valor predeterminado que desees mostrar para fechas inválidas o nulas
+      return '';
     }
 
-    // Importa DatePipe en el constructor para usarlo aquí
     const datePipe = new DatePipe('en-US'); // Ajusta la configuración de localización si es necesario
 
     return datePipe.transform(createdAt, 'yyyy-MM-dd / HH:mm:ss') || '';
@@ -91,8 +90,8 @@ export class BookListComponent {
 
   editRow(row: any) {
     const dialogRef = this.dialog.open(BookEditComponent, {
-      width: '400px', // Ajusta el ancho del modal según tus necesidades
-      data: row // Puedes pasar datos al componente del diálogo si es necesario
+      width: '400px',
+      data: row
     });
     dialogRef.afterClosed();
     console.log('Edit clicked for row:', row);

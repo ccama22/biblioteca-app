@@ -16,7 +16,7 @@ export class BookPageComponent implements OnInit {
 
   openCreateBookDialog() {
     const dialogRef = this.dialog.open(BookCreateComponent, {
-      width: '400px', // Ajusta el ancho según tus necesidades
+      width: '400px',
     });
 
     dialogRef.afterClosed();
