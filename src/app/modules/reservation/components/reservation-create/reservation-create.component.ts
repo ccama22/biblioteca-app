@@ -102,11 +102,8 @@ export class ReservationCreateComponent implements OnInit {
             duration: 3000 // Duración en milisegundos del snackbar visible
           });
 
-          console.log("cafe",response)
-
           this.reservationService.getBookAvailablen(response.reservation.book_id).subscribe(
             (response)=>{
-              console.log("ccama flash",response)
               const dataFinalBook ={
                 title: response.book.title,
                 author:response.book.author,

@@ -47,6 +47,7 @@ export class ReservationEditComponent {
 
 
   ngOnInit(): void {
+    console.log("gustavo",this.data)
     this.getUser();
     this.getBook();
   }
@@ -100,6 +101,7 @@ export class ReservationEditComponent {
       // Llamada al método del servicio que utiliza HttpClient
       this.reservationService.updateDataOnServer(editedData,this.data._id).subscribe(
           () => {
+                console.log("data actual",)
                 this.dialogRef.close();
                 this.snackBar.open(`Reservacion Editada correctamente`, 'Cerrar', {
                   duration: 3000 // Duración en milisegundos del snackbar visible
@@ -114,6 +116,8 @@ export class ReservationEditComponent {
     console.log("cholo",this.datReservation)
 
   }
+
+  
   onCancel(): void {
     this.dialogRef.close();
   }

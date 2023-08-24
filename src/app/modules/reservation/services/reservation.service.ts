@@ -98,11 +98,6 @@ export class ReservationService {
   }
 
   updateBookAvailablen(updatedData: any,id:any): Observable<any>{
-    // const updatedModified = {
-    //   title: updatedData.title,
-    //   author: updatedData.author,
-    // };
-    console.log("data editttasr",updatedData)
     const apiUrl = `${this.URL}/book/${id}`;
 
     return this.http.put(apiUrl, updatedData).pipe(

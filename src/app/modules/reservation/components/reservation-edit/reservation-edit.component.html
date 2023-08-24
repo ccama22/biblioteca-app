@@ -23,7 +23,10 @@
                 </div>
             </div>
             <div class="content-data">
-                <label for="selectedBook">Seleccionar Libro:</label>
+                <div style="display: flex;gap: 100px;">
+                    <label for="selectedBook">Seleccionar Libro:</label>
+                    <div style="color: rgb(23, 52, 106);font-size: 13px;">Libros disponibles</div>
+                </div>
                 <select id="selectedBook" formControlName="selectedBook" class="custom-select">
                     <option value="" disabled selected>Seleccione una opción</option>
                     <option *ngFor="let book of books" [value]="book.book_id">{{ book.title }}</option>
