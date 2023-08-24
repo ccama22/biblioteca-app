@@ -59,14 +59,15 @@ export class ReservationService {
   }
 
   loadBook(){
-    return this.http.get<any>(`${this.URL}/book/list`)
-    .pipe(
+    return this.http.get<any>(`${this.URL}/book/list`).pipe(
       map(response => {
-        const booksWithNumber = response.books.map((book:any) => ({
+        const availableBooks = response.books
+          .filter((book: any) => book.available === true)
+          .map((book: any) => ({
             book_id: book._id,
-            title:book.title
-        }));
-        return booksWithNumber;
+            title: book.title
+          }));
+        return availableBooks;
       })
     );
   }
@@ -93,6 +94,31 @@ export class ReservationService {
       map(response => {
         return response;
       })
+    );
+  }
+
+  updateBookAvailablen(updatedData: any,id:any): Observable<any>{
+    // const updatedModified = {
+    //   title: updatedData.title,
+    //   author: updatedData.author,
+    // };
+    console.log("data editttasr",updatedData)
+    const apiUrl = `${this.URL}/book/${id}`;
+
+    return this.http.put(apiUrl, updatedData).pipe(
+      tap(()=>{
+        this._refresh$.next();
+      }),
+    );
+  }
+
+  getBookAvailablen(id:any): Observable<any>{
+    console.log("superman",id)
+    const apiUrl = `${this.URL}/book/${id}`;
+    return this.http.get(apiUrl).pipe(
+      tap(()=>{
+        this._refresh$.next();
+      }),
     );
   }
 

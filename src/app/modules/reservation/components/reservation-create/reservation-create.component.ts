@@ -101,6 +101,29 @@ export class ReservationCreateComponent implements OnInit {
           this.snackBar.open(`Reservacion creada correctamente`, 'Cerrar', {
             duration: 3000 // Duración en milisegundos del snackbar visible
           });
+
+          console.log("cafe",response)
+
+          this.reservationService.getBookAvailablen(response.reservation.book_id).subscribe(
+            (response)=>{
+              console.log("ccama flash",response)
+              const dataFinalBook ={
+                title: response.book.title,
+                author:response.book.author,
+                available:false
+              }
+              this.reservationService.updateBookAvailablen(dataFinalBook,response.book._id).subscribe(
+                () => {
+                      this.dialogRef.close();
+                      console.log("transformer")
+                      this.snackBar.open(`Estado de libro actualizado`, 'Cerrar', {
+                        duration: 3000 // Duración en milisegundos del snackbar visible
+                      });
+                }
+              );
+            }
+          );
+
         }
       );
     }
